@@ -1,8 +1,8 @@
-package io.varnost.content;
+package io.varnost.baseContent;
 
-import io.varnost.base.Alert;
-import io.varnost.base.Content;
-import io.varnost.base.RuleInterface;
+import io.varnost.corengine.Alert;
+import io.varnost.corengine.Content;
+import io.varnost.corengine.RuleInterface;
 import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.databind.node.ObjectNode;

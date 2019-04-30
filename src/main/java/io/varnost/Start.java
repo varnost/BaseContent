@@ -1,8 +1,8 @@
-package io.varnost.content;
+package io.varnost.baseContent;
 
-import io.varnost.base.Alert;
-import io.varnost.base.LogStream;
-import io.varnost.base.RuleInterface;
+import io.varnost.corengine.Alert;
+import io.varnost.corengine.LogStream;
+import io.varnost.corengine.RuleInterface;
 import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.databind.node.ObjectNode;
 import org.apache.flink.streaming.api.datastream.DataStream;
 

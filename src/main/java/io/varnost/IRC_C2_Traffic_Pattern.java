@@ -1,13 +1,16 @@
-package io.varnost.content;
+package io.varnost.baseContent;
 
-import io.varnost.base.Alert;
-import io.varnost.base.Content;
-import io.varnost.base.RuleInterface;
+import io.varnost.corengine.Alert;
+import io.varnost.corengine.Content;
+import io.varnost.corengine.RuleInterface;
 import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.databind.node.ObjectNode;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.windowing.time.Time;
+
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,6 +21,7 @@ import java.util.stream.Collectors;
 public class IRC_C2_Traffic_Pattern implements RuleInterface {
     @Override
     public DataStream<Alert> logic(DataStream<ObjectNode> stream) {
+        Logger LOG = LoggerFactory.getLogger(this.getClass());
         DataStream<ObjectNode> f1 = Content.filter(stream, "type", "firewall");
         DataStream<ObjectNode> f2 = Content.filter(f1, "dest_port", Arrays.asList(
                 "6660",
